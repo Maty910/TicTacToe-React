@@ -10,7 +10,7 @@ function App() {
   const [board, setBoard] = useState(
     Array(9).fill(null)
   )
-  const [turn, setTurn] = useState(TURNS.X)
+  const [turn, setTurn] = useState(TURNS.O)
 
   const [winner, setWinner] = useState(null) /*null = no hay ganador, false = empate*/
 
@@ -18,8 +18,17 @@ function App() {
 
   const resetGame = () => {
     setBoard(Array(9).fill(null))
-    setTurn(TURNS.X)
+    
     setWinner(null)
+  }
+
+  const changeTurn = () => {
+    resetGame()
+    if (turn === TURNS.X) {
+      setTurn(TURNS.O)
+    } else if (turn === TURNS.O) {
+      setTurn(TURNS.X)
+    }
   }
 
   const updateBoard = (index) => {
@@ -62,12 +71,16 @@ function App() {
       </section>
 
       <section className="turn">
-        <Square isSelected={turn === TURNS.X}>
-          {TURNS.X}
-        </Square>
-        <Square isSelected={turn === TURNS.O}>
-          {TURNS.O}
-        </Square>
+        <button onClick={changeTurn}>
+          <Square isSelected={turn === TURNS.X}>
+            {TURNS.X}
+          </Square>
+        </button>
+        <button onClick={changeTurn}> 
+          <Square isSelected={turn != TURNS.X}>
+            {TURNS.O}
+          </Square>
+        </button>
       </section>
 
       <WinnerModal winner={winner} resetGame={resetGame} />

@@ -55,7 +55,7 @@ body {
 
 .board button:hover {
   background: #eee;
-  color: #cf0d0d;
+  color: #0c0c0c;
 }
 
 .board .game {
@@ -128,12 +128,12 @@ body {
   place-items: center;
   cursor: pointer;
   font-size: 48px;
-
+  
   position: relative;
   background-color: #242424;
 }
 
-.square::after, .square::before {
+.square:hover::after, .square:hover::before {
   content: '';
   position: absolute;
   height: 100%;
