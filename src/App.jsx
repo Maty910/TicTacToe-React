@@ -53,7 +53,7 @@ function App() {
   return (
     <main className="board">
       <h1>Tic Tac Toe</h1>
-      <button onClick={resetGame}>Comenzar de nuevo</button>
+      <button className="resetGameButton" onClick={resetGame}>Comenzar de nuevo</button>
       <section className="game">
         {
           board.map((square, index) => {
@@ -71,12 +71,12 @@ function App() {
       </section>
 
       <section className="turn">
-        <button onClick={changeTurn}>
+        <button className="turnButton" onClick={changeTurn}>
           <Square isSelected={turn === TURNS.X}>
             {TURNS.X}
           </Square>
         </button>
-        <button onClick={changeTurn}> 
+        <button className="turnButton" onClick={changeTurn}> 
           <Square isSelected={turn != TURNS.X}>
             {TURNS.O}
           </Square>

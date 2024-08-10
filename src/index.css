@@ -100,7 +100,7 @@ body {
   }
 } */
 
-.board button:hover {
+.board .resetGameButton:hover {
   background: #eee;
   color: #0c0c0c;
 }
@@ -174,15 +174,21 @@ body {
   margin: 0;
 }
 
-.board .turn button {
+
+.board .turn .turnButton {
   margin: 5px 10px;
-  padding: 3px;
+  padding: 1px;
   width: fit-content;
-  background: transparent;
+  background-color: #242424;
   text-align: center;
   border-radius: 10px;
   position: relative;
   border: transparent;
+}
+
+.board .turn .turnButton:hover .square{
+  background-color: #eee;
+  color: #0c0c0c;
 }
 
 @property --angle{
@@ -191,7 +197,7 @@ body {
   inherits: false;
 }
 
-.turn button::after, .turn button::before {
+.turn .turnButton::after, .turn .turnButton::before {
   content: '';
   position: absolute;
   height: 100%;
@@ -206,11 +212,11 @@ body {
   border-radius: 10px;
 }
 
-.turn button::before {
+.turn .turnButtontton::before {
   filter: blur(1.5rem);
   opacity: .5;
   /* animation: 3s spin linear infinite; */
-
+  
 }
 
 @keyframes spin {
@@ -233,7 +239,7 @@ body {
   left: 0;
   display: grid;
   place-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #000000b3;
 }
 
 .winner .text {
@@ -257,4 +263,5 @@ body {
   display: flex;
   gap: 15px;
 }
+
 
