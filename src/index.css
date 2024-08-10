@@ -197,22 +197,22 @@ body {
   inherits: false;
 }
 
-.turn .turnButton::after, .turn .turnButton::before {
+.turn .turnButton:hover::after, .turn .turnButton:hover::before {
   content: '';
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: conic-gradient(from var(--angle), transparent 80%, red, orange );
+  background-image: conic-gradient(from var(--angle), transparent 80%, red, orange);
   top:50%;
   left: 50%;
   translate: -50% -50%;
   z-index: -1;
   padding: 1px;
-  animation: 3s spin linear infinite;
+  animation: 2s spin linear infinite;
   border-radius: 10px;
 }
 
-.turn .turnButtontton::before {
+.turn .turnButtontton:hover::before {
   filter: blur(1.5rem);
   opacity: .5;
   /* animation: 3s spin linear infinite; */
