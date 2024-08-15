@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { useEffect } from "react"
+
 import './../index.css'
 
 export function ColorMode () {
@@ -8,7 +10,6 @@ export function ColorMode () {
     }
 
     const [mode, setMode] = useState(Mode.Dark)
-    
     
     const modeText = mode === Mode.Dark ? 'Switch to Dark' : 'Swith to Light'
     const modeStyles = mode === Mode.Dark ? 'darkmode' : 'lightmode'
@@ -22,6 +23,11 @@ export function ColorMode () {
         }
     }
     
+    useEffect(() => {
+        document.body.className = modeStyles
+    }), [modeStyles]
+    
+
     return (
         <aside>
             <h2>
