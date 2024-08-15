@@ -264,4 +264,13 @@ body {
   gap: 15px;
 }
 
+.darkmode {
+  background-color: #0c0c0c;
+  color: #eee;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+.lightmode {
+  background-color: #eee;
+  color: #0c0c0c;
+}

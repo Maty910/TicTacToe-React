@@ -5,21 +5,25 @@ import { Square } from "./components/Square.jsx"
 import { TURNS} from "./const.js"
 import { checkWinnerFrom, checkEndGame } from "./logic/board.js"
 import { WinnerModal } from "./components/WinnerModal.jsx"
+import { ColorMode } from "./components/Aside.jsx"
+import { saveGameToStorage, resetGameStorage } from "./logic/Storage/index.js"
 
 function App() {
-  const [board, setBoard] = useState(
-    Array(9).fill(null)
-  )
-  const [turn, setTurn] = useState(TURNS.O)
+  const [board, setBoard] = useState(() => {
+    const boardFromStorage = window.localStorage.getItem('board')
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)
+  })
+  const [turn, setTurn] = useState(() => {
+    const turnFromStorage = window.localStorage.getItem('turn')
+    return turnFromStorage ?? TURNS.O
+  })
 
   const [winner, setWinner] = useState(null) /*null = no hay ganador, false = empate*/
-
-  
-
   const resetGame = () => {
     setBoard(Array(9).fill(null))
-    
     setWinner(null)
+
+    resetGameStorage()
   }
 
   const changeTurn = () => {
@@ -41,6 +45,11 @@ function App() {
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
 
+    saveGameToStorage({ 
+      board: newBoard, 
+      turn: newTurn
+    })
+
     const newWinner = checkWinnerFrom(newBoard)
     if (newWinner) {
       confetti()
@@ -52,6 +61,9 @@ function App() {
 
   return (
     <main className="board">
+    <ColorMode>
+      <h1>dddddddddhola</h1>
+    </ColorMode>
       <h1>Tic Tac Toe</h1>
       <button className="resetGameButton" onClick={resetGame}>Comenzar de nuevo</button>
       <section className="game">
