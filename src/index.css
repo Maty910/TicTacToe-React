@@ -43,7 +43,6 @@ body {
 }
 
 .board h1 {
-  color: #eee;
   margin-bottom: 16px;
 }
 
@@ -59,8 +58,6 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-
-
 
 /* .turn button {
   width: 80px;
@@ -192,18 +189,13 @@ body {
   border: transparent;
 }
 
-.board .turn .turnButton:hover .square{
-  background-color: #eee;
-  color: #0c0c0c;
-}
-
 @property --angle{
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
 
-.turn .turnButton:hover::after, .turn .turnButton:hover::before {
+.turn .turnButton::after, .turn .turnButton::before {
   content: '';
   position: absolute;
   height: 100%;
@@ -218,7 +210,7 @@ body {
   border-radius: 10px;
 }
 
-.turn .turnButton:hover::before {
+.turn .turnButton::before {
   filter: blur(1.5rem);
   opacity: .5;
   /* animation: 3s spin linear infinite; */
@@ -267,13 +259,16 @@ body {
   gap: 15px;
 }
 
-.darkmode {
-  background-color: #0c0c0c;
-  color: #eee;
-  transition: .5s ease-in-out;
+.winner button:hover {
+background-color: #66666697;
 }
 
-.lightmode, .lightmode button,.lightmode .board h1, .lightmode .turnButton {
+.darkmode {
+  background-color: var(--black);
+  transition: all .5s ease-in-out;
+}
+
+.lightmode, .lightmode button, .lightmode .turnButton {
   background-color: var(--cream);
   color: var(--black);
   border-color: var(--text-color);
@@ -316,22 +311,23 @@ aside {
   border-radius: 10px;
   box-shadow: 0px 2px 8px #00ffbb56; /* Añade una sombra para darle profundidad */
   overflow: hidden;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Transición suave para el desplegable */
+  transition: max-height .4s ease-out, opacity 1s ease-out; /* Transición suave para el desplegable */
   max-height: 0; /* Comienza cerrado */
   opacity: 0;
-  z-index: 2;
 }
 
 aside.open {
   max-height: 300px; /* Espacio para mostrar el contenido */
   opacity: 1;
+  z-index: 2;
 }
 
 aside h2, aside p {
   color: #cdce90;
   padding: 7px;
   margin: 0;
-  background-color: rgb(35, 35, 35) /* Diferencia del fondo del aside */
+  background-color: #232323; /* Diferencia del fondo del aside */
+  z-index: 2;
 }
 
 aside button {
@@ -340,6 +336,7 @@ aside button {
   border: none;
   cursor: pointer;
   text-align: center;
+  z-index: 2;
 }
 
 aside button:hover {
@@ -353,6 +350,7 @@ aside button:hover {
     border-radius: 0;
   }
 }
+
 button.menu-toggle {
   text-align: center;
   background: var(--black);
@@ -365,11 +363,15 @@ button.menu-toggle {
   top: -3px;
   left: -8px;
   cursor: pointer;
-  z-index: 11;
-  transition:  all 0.3s ease;
+  z-index: 2;
+  transition:  all .4s ease;
 }
 
 button.menu-toggle.open {
   transform: rotate(270deg);
   left:225px
+}
+
+button.menu-toggle:hover {
+  background-color: #66666697;
 }
