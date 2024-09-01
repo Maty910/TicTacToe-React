@@ -5,7 +5,7 @@ import { Square } from "./components/Square.jsx"
 import { TURNS} from "./const.js"
 import { checkWinnerFrom, checkEndGame } from "./logic/board.js"
 import { WinnerModal } from "./components/WinnerModal.jsx"
-import { ColorMode } from "./components/Aside.jsx"
+import { Aside } from "./components/Aside.jsx"
 import { saveGameToStorage, resetGameStorage } from "./logic/Storage/index.js"
 
 function App() {
@@ -61,9 +61,9 @@ function App() {
 
   return (
     <main className="board">
-    <ColorMode>
-      <h1>dddddddddhola</h1>
-    </ColorMode>
+    <Aside>
+  
+    </Aside>
       <h1>Tic Tac Toe</h1>
       <button className="resetGameButton" onClick={resetGame}>Comenzar de nuevo</button>
       <section className="game">

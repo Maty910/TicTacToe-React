@@ -1,5 +1,3 @@
-
-
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
@@ -7,8 +5,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #ffffffde;
-  background-color: var(black);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,8 +13,10 @@
   -webkit-text-size-adjust: 100%;
 
   /* lightmode */
-  --cream: #eee;
-  --aquagreen: #7de3cb;
+  --cream: #cdce90;
+  --blue:#178ec1 ;
+  --aquagreen: #0ad4a5;
+  --text-color: #292921;
 
   /* darkmode */
   --black: #0c0c0c;
@@ -183,7 +181,6 @@ body {
   margin: 0;
 }
 
-
 .board .turn .turnButton {
   margin: 5px 10px;
   padding: 1px;
@@ -221,7 +218,7 @@ body {
   border-radius: 10px;
 }
 
-.turn .turnButtontton:hover::before {
+.turn .turnButton:hover::before {
   filter: blur(1.5rem);
   opacity: .5;
   /* animation: 3s spin linear infinite; */
@@ -236,9 +233,6 @@ body {
     --angle: 360deg;
   }
 }
-
-
-
 
 .winner {
   position: absolute;
@@ -276,29 +270,106 @@ body {
 .darkmode {
   background-color: #0c0c0c;
   color: #eee;
-  transition: all .5s ease;
+  transition: .5s ease-in-out;
 }
 
 .lightmode, .lightmode button,.lightmode .board h1, .lightmode .turnButton {
   background-color: var(--cream);
   color: var(--black);
-  border-color: var(--black);
-  transition: all .5s ease-out;
+  border-color: var(--text-color);
+  transition: all .5s ease-in-out;
 }
 
 .lightmode .game .square {
-  background-color: var(--aquagreen);
-  color: var(--black);
-  transition: all .5s ease-out;
+  background-color: var(--blue);
+  color: var(--text-color);
+  transition: all .5s ease-in-out;
 }
 
 .lightmode .turnButton .square {
-  background-color: var(--aquagreen);
-  transition: all .5s ease-out;
+  background-color: var(--blue);
+  transition: all .5s ease-in-out;
 }
 
 .lightmode .turnButton .square.is-selected {
-  background-color: #1BD054;
+  background-color: var(--aquagreen);
+  color: var(--text-color);
+  transition: all .5s ease-in-out;
+}
+
+.lightmode aside {
+  background-color: var(--cream);
+  box-shadow: 0px 4px 8px#0c0c0c;
+}
+
+.lightmode button.menu-toggle{
+  background-color: var(--cream);
   color: var(--black);
-  transition: all .5s ease-out;
+  border-color: var(--black);
+}
+aside {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 230px; /* Ajusta según tus necesidades */
+  background-color: var(--black); /* Un fondo oscuro para contraste */
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px #00ffbb56; /* Añade una sombra para darle profundidad */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Transición suave para el desplegable */
+  max-height: 0; /* Comienza cerrado */
+  opacity: 0;
+  z-index: 2;
+}
+
+aside.open {
+  max-height: 300px; /* Espacio para mostrar el contenido */
+  opacity: 1;
+}
+
+aside h2, aside p {
+  color: #cdce90;
+  padding: 7px;
+  margin: 0;
+  background-color: rgb(35, 35, 35) /* Diferencia del fondo del aside */
+}
+
+aside button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+aside button:hover {
+  background-color: #66666697;
+}
+
+@media (max-width: 425px) {
+  aside {
+    width: 100%;
+    left: 0;
+    border-radius: 0;
+  }
+}
+button.menu-toggle {
+  text-align: center;
+  background: var(--black);
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  width: 50px;
+  border: white 2px solid;
+  position: fixed;
+  top: -3px;
+  left: -8px;
+  cursor: pointer;
+  z-index: 11;
+  transition:  all 0.3s ease;
+}
+
+button.menu-toggle.open {
+  transform: rotate(270deg);
+  left:225px
 }
