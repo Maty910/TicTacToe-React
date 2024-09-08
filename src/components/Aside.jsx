@@ -25,14 +25,14 @@ export function Aside () {
     const changeLanguage = () => {
         setLanguage(prevLanguage => 
             prevLanguage === Languages.English ? Languages.Español : Languages.English
-        );
-    };
+        )
+    }
 
     const changeMode = () => {
         setMode(prevMode => 
             prevMode === Mode.Dark ? Mode.Light : Mode.Dark
-        );
-    };
+        )
+    }
     
     useEffect(() => {
         document.body.className = modeStyles
@@ -42,13 +42,13 @@ export function Aside () {
     const content = {
         title: language === Languages.English ? 'Tic Tac Toe' : 'Ta Te Tí',
         author: language === Languages.English ? 'by Maty' : 'por Maty'
-    };
+    }
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+        setIsOpen(!isOpen)
+    }
 
     return (
         <>

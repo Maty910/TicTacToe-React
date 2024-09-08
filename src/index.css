@@ -39,11 +39,24 @@ body {
 .board {
   width: fit-content;
   margin: 40px auto;
+  margin-top: 15px;
   text-align: center;
 }
 
 .board h1 {
+  font-size: 35px;
+  margin: 0 -50px;
   margin-bottom: 16px;
+  box-shadow: inset 0px -6px 6px #00ffbb56;
+  text-shadow: 2px 2px 5px #00ffbb;
+  color: var(--black);
+  border-radius: 10px;
+  border: solid 2px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+  padding-bottom: 9px;
 }
 
 .board button {
@@ -59,54 +72,8 @@ body {
   cursor: pointer;
 }
 
-/* .turn button {
-  width: 80px;
-  height: 80px;
-  margin: 0;
-  margin-left: 10px;
-  padding: 0;
-  
-  border: transparent;
-  position: relative;
-  overflow: hidden;
-}
-
-.turn button::before {
-  content: '';
-  background-image: conic-gradient(orange 20deg, green 120deg);
-  width: 110%;
-  height: 110%;
-  display: flex;
-  left: -12px;
-  top: 0px;
-  border: red solid ;
-  border-radius: 10px;
-  position: absolute;
-  animation: rotate 2s linear infinite;
-  overflow: hidden;
-}
-
-.turn button::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #0c0c0c;
-  position: absolute;
-  border-radius: 10px;
-}
-
-@keyframes rotate {
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-    transform: rotate(-360deg);
-  }
-} */
-
 .board .resetGameButton:hover {
-  background: #eee;
-  color: #0c0c0c;
+  background: #66666697;
 }
 
 .board .game {
@@ -168,7 +135,7 @@ body {
 
 .square.is-selected {
   color: #fff;
-  background: #09f;
+  background: #11aa81;
   font-size: 48px;
 }
 
@@ -239,6 +206,7 @@ body {
 
 .winner .text {
   background: #111;
+  box-shadow: inset 0px 0px 15px #00ffbb56;
   height: 300px;
   width: 320px;
   border: 2px solid #eee;
@@ -268,11 +236,15 @@ background-color: #66666697;
   transition: all .5s ease-in-out;
 }
 
+.darkmode .turnButton .square   {
+  transition: all .3s ease-in-out ;
+}
+
 .lightmode, .lightmode button, .lightmode .turnButton {
   background-color: var(--cream);
   color: var(--black);
   border-color: var(--text-color);
-  transition: all .5s ease-in-out;
+  transition: all 1.5s ease-in-out;
 }
 
 .lightmode .game .square {
@@ -283,7 +255,7 @@ background-color: #66666697;
 
 .lightmode .turnButton .square {
   background-color: var(--blue);
-  transition: all .5s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .lightmode .turnButton .square.is-selected {
@@ -294,7 +266,8 @@ background-color: #66666697;
 
 .lightmode aside {
   background-color: var(--cream);
-  box-shadow: 0px 4px 8px#0c0c0c;
+  box-shadow: none;
+  border: var(--black) solid 2px;
 }
 
 .lightmode button.menu-toggle{
@@ -302,6 +275,11 @@ background-color: #66666697;
   color: var(--black);
   border-color: var(--black);
 }
+
+.lightmode h1 {
+  color:var(--text-color);
+}
+
 aside {
   position: absolute;
   top: 10px;
@@ -309,7 +287,7 @@ aside {
   width: 230px; /* Ajusta según tus necesidades */
   background-color: var(--black); /* Un fondo oscuro para contraste */
   border-radius: 10px;
-  box-shadow: 0px 2px 8px #00ffbb56; /* Añade una sombra para darle profundidad */
+  box-shadow: inset 0px 0px 4px #00ffbb56; /* Añade una sombra para darle profundidad */
   overflow: hidden;
   transition: max-height .4s ease-out, opacity 1s ease-out; /* Transición suave para el desplegable */
   max-height: 0; /* Comienza cerrado */
@@ -323,11 +301,16 @@ aside.open {
 }
 
 aside h2, aside p {
-  color: #cdce90;
-  padding: 7px;
+  color: var(--aquagreen);
+  padding: 10px 7px 5px 7px;
   margin: 0;
   background-color: #232323; /* Diferencia del fondo del aside */
   z-index: 2;
+}
+
+aside p {
+  padding-top: 0px;
+  color: #18c54c;
 }
 
 aside button {
